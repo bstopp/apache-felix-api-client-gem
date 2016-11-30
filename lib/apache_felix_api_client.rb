@@ -30,6 +30,7 @@ require 'apache_felix_api_client/configuration'
 # Models
 require 'apache_felix_api_client/models/bundle'
 require 'apache_felix_api_client/models/bundle_list'
+require 'apache_felix_api_client/models/bundle_props'
 
 # APIs
 require 'apache_felix_api_client/api/default_api'

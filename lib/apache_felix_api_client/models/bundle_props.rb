@@ -25,70 +25,25 @@ require 'date'
 
 module ApacheFelix
 
-  class Bundle
-    attr_accessor :id
+  class BundleProps
+    attr_accessor :key
 
-    attr_accessor :name
+    attr_accessor :value
 
-    attr_accessor :fragment
-
-    attr_accessor :state
-
-    attr_accessor :version
-
-    attr_accessor :symbolic_name
-
-    attr_accessor :category
-
-    attr_accessor :props
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'name' => :'name',
-        :'fragment' => :'fragment',
-        :'state' => :'state',
-        :'version' => :'version',
-        :'symbolic_name' => :'symbolicName',
-        :'category' => :'category',
-        :'props' => :'props'
+        :'key' => :'key',
+        :'value' => :'value'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'Integer',
-        :'name' => :'String',
-        :'fragment' => :'BOOLEAN',
-        :'state' => :'String',
-        :'version' => :'String',
-        :'symbolic_name' => :'String',
-        :'category' => :'String',
-        :'props' => :'Array<BundleProps>'
+        :'key' => :'String',
+        :'value' => :'Array<String>'
       }
     end
 
@@ -100,37 +55,13 @@ module ApacheFelix
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.has_key?(:'key')
+        self.key = attributes[:'key']
       end
 
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'fragment')
-        self.fragment = attributes[:'fragment']
-      end
-
-      if attributes.has_key?(:'state')
-        self.state = attributes[:'state']
-      end
-
-      if attributes.has_key?(:'version')
-        self.version = attributes[:'version']
-      end
-
-      if attributes.has_key?(:'symbolicName')
-        self.symbolic_name = attributes[:'symbolicName']
-      end
-
-      if attributes.has_key?(:'category')
-        self.category = attributes[:'category']
-      end
-
-      if attributes.has_key?(:'props')
-        if (value = attributes[:'props']).is_a?(Array)
-          self.props = value
+      if attributes.has_key?(:'value')
+        if (value = attributes[:'value']).is_a?(Array)
+          self.value = value
         end
       end
 
@@ -146,19 +77,7 @@ module ApacheFelix
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      state_validator = EnumAttributeValidator.new('String', ["Uninstalled", "Installed", "Resolved", "Starting", "Stopping", "Active", "Fragment"])
-      return false unless state_validator.valid?(@state)
       return true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] state Object to be assigned
-    def state=(state)
-      validator = EnumAttributeValidator.new('String', ["Uninstalled", "Installed", "Resolved", "Starting", "Stopping", "Active", "Fragment"])
-      unless validator.valid?(state)
-        fail ArgumentError, "invalid value for 'state', must be one of #{validator.allowable_values}."
-      end
-      @state = state
     end
 
     # Checks equality by comparing each attribute.
@@ -166,14 +85,8 @@ module ApacheFelix
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          name == o.name &&
-          fragment == o.fragment &&
-          state == o.state &&
-          version == o.version &&
-          symbolic_name == o.symbolic_name &&
-          category == o.category &&
-          props == o.props
+          key == o.key &&
+          value == o.value
     end
 
     # @see the `==` method
@@ -185,7 +98,7 @@ module ApacheFelix
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, fragment, state, version, symbolic_name, category, props].hash
+      [key, value].hash
     end
 
     # Builds the object from hash
