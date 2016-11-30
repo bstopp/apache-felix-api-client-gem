@@ -1,9 +1,9 @@
 # -*- encoding: utf-8 -*-
 #
 =begin
-#Apache Sling Resource API
+#Apache Felix API
 
-#API for interacting with a Sling system.
+#API for interacting with an Apache Felix system.
 
 OpenAPI spec version: 1.0.0
 Contact: bryan.stopp@gmail.com
@@ -33,8 +33,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Swagger-Codegen"]
   s.email       = ["bryan.stopp@gmail.com"]
   s.homepage    = "https://github.com/swagger-api/swagger-codegen"
-  s.summary     = "Apache Sling Resource API Ruby Gem"
-  s.description = "API for interacting with a Sling system."
+  s.summary     = "Apache Felix API Ruby Gem"
+  s.description = "API for interacting with an Apache Felix system."
   s.license     = "Apache-2.0"
 
   s.add_runtime_dependency 'typhoeus', '~> 1.0', '>= 1.0.1'

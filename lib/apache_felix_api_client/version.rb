@@ -1,7 +1,7 @@
 =begin
-#Apache Sling Resource API
+#Apache Felix API
 
-#API for interacting with a Sling system.
+#API for interacting with an Apache Felix system.
 
 OpenAPI spec version: 1.0.0
 Contact: bryan.stopp@gmail.com
@@ -22,5 +22,5 @@ limitations under the License.
 =end
 
 module ApacheFelix
-  VERSION = "0.1.0"
+  VERSION = "0.1.1"
 end
