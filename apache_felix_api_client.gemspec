@@ -32,7 +32,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Swagger-Codegen"]
   s.email       = ["bryan.stopp@gmail.com"]
-  s.homepage    = "https://github.com/swagger-api/swagger-codegen"
+  s.homepage    = "https://github.com/bstopp/apache-felix-api-client-gem"
   s.summary     = "Apache Felix API Ruby Gem"
   s.description = "API for interacting with an Apache Felix system."
   s.license     = "Apache-2.0"
