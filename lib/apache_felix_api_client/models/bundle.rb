@@ -32,6 +32,8 @@ module ApacheFelix
 
     attr_accessor :fragment
 
+    attr_accessor :state_raw
+
     attr_accessor :state
 
     attr_accessor :version
@@ -70,6 +72,7 @@ module ApacheFelix
         :'id' => :'id',
         :'name' => :'name',
         :'fragment' => :'fragment',
+        :'state_raw' => :'stateRaw',
         :'state' => :'state',
         :'version' => :'version',
         :'symbolic_name' => :'symbolicName',
@@ -84,6 +87,7 @@ module ApacheFelix
         :'id' => :'Integer',
         :'name' => :'String',
         :'fragment' => :'BOOLEAN',
+        :'state_raw' => :'Integer',
         :'state' => :'String',
         :'version' => :'String',
         :'symbolic_name' => :'String',
@@ -110,6 +114,10 @@ module ApacheFelix
 
       if attributes.has_key?(:'fragment')
         self.fragment = attributes[:'fragment']
+      end
+
+      if attributes.has_key?(:'stateRaw')
+        self.state_raw = attributes[:'stateRaw']
       end
 
       if attributes.has_key?(:'state')
@@ -169,6 +177,7 @@ module ApacheFelix
           id == o.id &&
           name == o.name &&
           fragment == o.fragment &&
+          state_raw == o.state_raw &&
           state == o.state &&
           version == o.version &&
           symbolic_name == o.symbolic_name &&
@@ -185,7 +194,7 @@ module ApacheFelix
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, fragment, state, version, symbolic_name, category, props].hash
+      [id, name, fragment, state_raw, state, version, symbolic_name, category, props].hash
     end
 
     # Builds the object from hash

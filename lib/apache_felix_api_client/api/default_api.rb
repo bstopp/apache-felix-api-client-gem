@@ -31,7 +31,64 @@ module ApacheFelix
       @api_client = api_client
     end
 
-    # Bundles list
+    # Bundle Info
+    # Display all information about a bundle. Same response structure as bundle listing; only one entry exists in the list. To get the bundle details: ```ruby   result = api_instance.bundle_info('bundle.id')   // Bundle is of type Bundle   bundle = result.data[0] ``` 
+    # @param bundle_id The symbolic name or id of the bundle.
+    # @param [Hash] opts the optional parameters
+    # @return [BundleList]
+    def bundle_info(bundle_id, opts = {})
+      data, _status_code, _headers = bundle_info_with_http_info(bundle_id, opts)
+      return data
+    end
+
+    # Bundle Info
+    # Display all information about a bundle. Same response structure as bundle listing; only one entry exists in the list. To get the bundle details: &#x60;&#x60;&#x60;ruby   result &#x3D; api_instance.bundle_info(&#39;bundle.id&#39;)   // Bundle is of type Bundle   bundle &#x3D; result.data[0] &#x60;&#x60;&#x60; 
+    # @param bundle_id The symbolic name or id of the bundle.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(BundleList, Fixnum, Hash)>] BundleList data, response status code and response headers
+    def bundle_info_with_http_info(bundle_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: DefaultApi.bundle_info ..."
+      end
+      # verify the required parameter 'bundle_id' is set
+      fail ArgumentError, "Missing the required parameter 'bundle_id' when calling DefaultApi.bundle_info" if bundle_id.nil?
+      # resource path
+      local_var_path = "/bundles/{bundleId}.json".sub('{format}','json').sub('{' + 'bundleId' + '}', bundle_id.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+
+      # HTTP header 'Accept' (if needed)
+      local_header_accept = ['application/json']
+      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
+
+      # HTTP header 'Content-Type'
+      local_header_content_type = []
+      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['basic']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'BundleList')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#bundle_info\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List bundles
     # List all the bundles in the Felix system. Properties for a bundle will not be populated.
     # @param [Hash] opts the optional parameters
     # @return [BundleList]
@@ -40,7 +97,7 @@ module ApacheFelix
       return data
     end
 
-    # Bundles list
+    # List bundles
     # List all the bundles in the Felix system. Properties for a bundle will not be populated.
     # @param [Hash] opts the optional parameters
     # @return [Array<(BundleList, Fixnum, Hash)>] BundleList data, response status code and response headers

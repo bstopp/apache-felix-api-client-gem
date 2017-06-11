@@ -1,4 +1,4 @@
-=begin
+  =begin
 #Apache Sling Resource API
 
 #API for interacting with a Sling system.
