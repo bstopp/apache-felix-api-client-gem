@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 Bundle Info
 
-Display all information about a bundle. Same response structure as bundle listing; only one entry exists in the list. To get the bundle details: ```ruby   result = api_instance.bundle_info('bundle.id')   // Bundle is of type Bundle   bundle = result.data[0] ``` 
+Display all information about a bundle. Same response structure as bundle listing; only one entry exists in the list.
 
 ### Example
 ```ruby

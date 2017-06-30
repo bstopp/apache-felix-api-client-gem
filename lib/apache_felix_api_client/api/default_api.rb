@@ -32,7 +32,7 @@ module ApacheFelix
     end
 
     # Bundle Info
-    # Display all information about a bundle. Same response structure as bundle listing; only one entry exists in the list. To get the bundle details: ```ruby   result = api_instance.bundle_info('bundle.id')   // Bundle is of type Bundle   bundle = result.data[0] ``` 
+    # Display all information about a bundle. Same response structure as bundle listing; only one entry exists in the list.
     # @param bundle_id The symbolic name or id of the bundle.
     # @param [Hash] opts the optional parameters
     # @return [BundleList]
@@ -42,7 +42,7 @@ module ApacheFelix
     end
 
     # Bundle Info
-    # Display all information about a bundle. Same response structure as bundle listing; only one entry exists in the list. To get the bundle details: &#x60;&#x60;&#x60;ruby   result &#x3D; api_instance.bundle_info(&#39;bundle.id&#39;)   // Bundle is of type Bundle   bundle &#x3D; result.data[0] &#x60;&#x60;&#x60; 
+    # Display all information about a bundle. Same response structure as bundle listing; only one entry exists in the list.
     # @param bundle_id The symbolic name or id of the bundle.
     # @param [Hash] opts the optional parameters
     # @return [Array<(BundleList, Fixnum, Hash)>] BundleList data, response status code and response headers
