@@ -1,3 +1,9 @@
+# DEPRECATED
+This library has been depreciated and replaced with a more accurately named and scoped client, available here:
+
+https://github.com/bstopp/apache-felix-webconsole-client-gem
+
+
 # apache_felix_api_client
 
 ApacheFelix - the Ruby gem for the Apache Felix API
